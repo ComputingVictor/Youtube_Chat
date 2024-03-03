@@ -2,11 +2,12 @@ from langchain_community.llms import Ollama
 from langchain import PromptTemplate
 from langchain.chains import LLMChain
 from googletrans import Translator
+from langchain.document_loaders import YoutubeLoader
 
 # Crear instancia de Ollama
 llm = Ollama(model="llama2")
 
-from langchain_core.prompts import ChatPromptTemplate
+
 
 # Función para crear la base de datos a partir de la URL de un video de YouTube
 def create_db_from_youtube_video_url(video_url: str):
@@ -30,7 +31,7 @@ def get_response_from_query(db, query, k=4):
     prompt = PromptTemplate(
         input_variables=["question", "docs"],
         template="""
-        Eres un asistente útil que responde solo en español y que puede responder preguntas sobre videos de YouTube 
+        Eres un asistente inteligente que puede responder preguntas sobre videos de YouTube 
         basado en la transcripción del video.
         
         Responde la siguiente pregunta: {question}
@@ -40,7 +41,7 @@ def get_response_from_query(db, query, k=4):
         
         Si sientes que no tienes suficiente información para responder la pregunta, di "No lo sé".
         
-        Tus respuestas deben ser detalladas y completas.
+        Tus respuestas deben ser detalladas y completas, no des detalles de más que no tengan que ver con el video.
         """,
     )
 
@@ -56,24 +57,31 @@ def translate_text(text, target_language='es'):
     translated_text = translator.translate(text, dest=target_language)
     return translated_text.text
 
-# URL del video de YouTube
-video_url = "https://www.youtube.com/watch?v=vqfooev8RNQ&t=620s"
-# Crear la base de datos a partir de la URL del video
-db = create_db_from_youtube_video_url(video_url)
 
-# Bucle principal para interactuar con el chatbot
-while True:
-    # Solicitar al usuario que ingrese una pregunta
-    query = input("Ingrese su pregunta (o escriba 'salir' para terminar): ")
+if __name__ == "__main__":
+    # URL del video de YouTube
+    video_url = input("Ingrese el link del video de YouTube en español:")
+    # Crear la base de datos a partir de la URL del video
+    db = create_db_from_youtube_video_url(video_url)
+
+    # Bucle principal para interactuar con el chatbot
+    while True:
+        # Solicitar al usuario que ingrese una pregunta
+        query = input("Ingrese su pregunta (o escriba 'salir' para terminar): ")
+        
+        # Verificar si el usuario quiere salir del bucle
+        if query.lower() == "salir":
+            print("¡Hasta luego!")
+            break
+        
+        # Obtener la respuesta del chatbot
+        response, docs = get_response_from_query(db, query)
+        # Traducir la respuesta al español
+        response_translated = translate_text(response)
+        # Imprimir la respuesta traducida
+        print("Respuesta:", response_translated)
+
+
+
+
     
-    # Verificar si el usuario quiere salir del bucle
-    if query.lower() == "salir":
-        print("¡Hasta luego!")
-        break
-    
-    # Obtener la respuesta del chatbot
-    response, docs = get_response_from_query(db, query)
-    # Traducir la respuesta al español
-    response_translated = translate_text(response)
-    # Imprimir la respuesta traducida
-    print("Respuesta:", response_translated)
