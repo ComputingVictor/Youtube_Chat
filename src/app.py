@@ -2,13 +2,12 @@ import streamlit as st
 from langchain_community.llms import Ollama
 from langchain import PromptTemplate
 from langchain.chains import LLMChain
-# from googletrans import Translator  # Comentado, asumiendo que la traducción podría no ser necesaria en este contexto
+# from googletrans import Translator  
 from langchain.document_loaders import YoutubeLoader
 import warnings
 from PIL import Image
 
 
-# Suprimir específicamente las advertencias de deprecación de LangChain
 warnings.filterwarnings("ignore", category=DeprecationWarning, module="langchain_core")
 
 # Función para crear la base de datos a partir de la URL de un video de YouTube
@@ -48,7 +47,7 @@ st.title("Asistente de Video YouTube")
 image = Image.open("..\img\youtube_logo.png")
 
 # Mostrar la imagen en Streamlit
-st.image(image, width=200, )
+st.image(image, width=200)
 
 video_url = st.text_input("Ingrese el enlace del video de YouTube:")
 language = st.selectbox("Seleccione el idioma de la transcripción:", options=['es', 'en'], index=0)
