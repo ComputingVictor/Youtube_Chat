@@ -1,5 +1,8 @@
 # YouTube Video Analysis Chatbot
 
+![image](https://github.com/ComputingVictor/LLM_Projects/assets/115224707/583ddb13-48d7-49c9-818e-1babbc2b21f4)
+
+
 This project is a chatbot developed using LLM (Large Language Models) capable of answering questions about YouTube videos based on their transcriptions. The chatbot utilizes natural language processing techniques to analyze user queries and retrieve relevant information from the video transcriptions.
 
 ## Features
@@ -20,10 +23,8 @@ pip install -r requirements.txt
 ```
 To initiate the Streamlit web application, run the following command in your terminal:
     
-    ```bash
     streamlit run app.py
-
-    ```
+    
 This will open the Streamlit application in your default web browser.
 
 ## Usage
