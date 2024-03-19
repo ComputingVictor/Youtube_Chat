@@ -37,6 +37,16 @@ Once the Streamlit application is running, you'll be presented with a web interf
 - Click on "Obtener respuesta" to submit your question and receive a response.
 - The chatbot will process your question and return a response based on the video's transcription.
 
+
+## Technologies Used
+
+This project makes use of several cutting-edge technologies and frameworks to deliver a seamless and efficient user experience:
+
+- **Langchain**: A framework that facilitates the use of LLMs for various tasks, including information extraction and question-answering based on provided documents or text.
+- **Ollama**: Framework providing locally the underlying LLM models for the chatbot.
+- **Streamlit**: An open-source app framework used to create and share beautiful, custom web apps for machine learning and data science projects. In this project, Streamlit is used for creating the interactive web interface that users interact with.
+
+
 ## Contribution
 
 If you wish to contribute to this project, feel free to submit pull requests with improvements, bug fixes, or new features. You can also open issues to report bugs or suggest new ideas.
