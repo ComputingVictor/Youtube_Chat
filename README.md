@@ -27,6 +27,9 @@ To initiate the Streamlit web application, run the following command in your ter
     
 This will open the Streamlit application in your default web browser.
 
+![2024-03-1919-29-55-ezgif com-video-to-gif-converter](https://github.com/ComputingVictor/Youtube_Chat/assets/115224707/fc4ab108-075f-481b-b24a-3b0787e3bad5)
+
+
 ## Usage
 
 Once the Streamlit application is running, you'll be presented with a web interface where you can:
