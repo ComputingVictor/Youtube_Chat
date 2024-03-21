@@ -50,6 +50,10 @@ This project makes use of several cutting-edge technologies and frameworks to de
 - **Streamlit**: An open-source app framework used to create and share beautiful, custom web apps for machine learning and data science projects. In this project, Streamlit is used for creating the interactive web interface that users interact with.
 
 
+## 🚧 WARNING: UNDER CONSTRUCTION 🚧
+
+This project is work in progress and subject to frequent changes 
+
 ## Contribution
 
 If you wish to contribute to this project, feel free to submit pull requests with improvements, bug fixes, or new features. You can also open issues to report bugs or suggest new ideas.
